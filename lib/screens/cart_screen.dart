@@ -80,8 +80,8 @@ class CartScreen extends StatelessWidget {
                                             Container(
                                               height: 46.2,
                                               width: 125,
-                                              decoration: BoxDecoration(
-                                                borderRadius: const BorderRadius.all(
+                                              decoration: const BoxDecoration(
+                                                borderRadius: BorderRadius.all(
                                                     Radius.circular(7)),
                                               ),
                                               child: Row(
@@ -228,16 +228,16 @@ class CartScreen extends StatelessWidget {
                               const Spacer(),
                               ElevatedButton(
                                 onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  fixedSize: const Size(300, 40),
+                                  onPrimary: Colors.white,
+                                  primary: color,
+                                ),
                                 child: const Text(
                                   'Checkout',
                                   style: TextStyle(
                                     fontSize: 9,
                                   ),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  fixedSize: const Size(300, 40),
-                                  onPrimary: Colors.white,
-                                  primary: color,
                                 ),
                               ),
                             ],
@@ -263,16 +263,16 @@ class CartScreen extends StatelessWidget {
                         ),
                         ElevatedButton(
                           onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(80, 40),
+                            onPrimary: Colors.white,
+                            primary: color,
+                          ),
                           child: const Text(
                             'Apply',
                             style: TextStyle(
                               fontSize: 9,
                             ),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            fixedSize: const Size(80, 40),
-                            onPrimary: Colors.white,
-                            primary: color,
                           ),
                         ),
                       ],

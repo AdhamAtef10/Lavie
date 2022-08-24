@@ -19,13 +19,13 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isChecked = false;
   var formKey = GlobalKey<FormState>();
 
-  @override
-  void initState() {
-    super.initState();
-    AuthenticationCubit.get(context).emailController.text ="adhamatef10@gmail.com";
-    AuthenticationCubit.get(context).passwordController.text ="Adham0123";
-
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   AuthenticationCubit.get(context).emailController.text ="adhamatef10@gmail.com";
+  //   AuthenticationCubit.get(context).passwordController.text ="Adham0123";
+  //
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   AppNavigator.customNavigator(
                     context: context,
-                    screen: SignUpScreen(),
+                    screen: const SignUpScreen(),
                     finish: false,
                   );
                 },
@@ -111,6 +111,10 @@ class _LoginScreenState extends State<LoginScreen> {
               BlocConsumer<AuthenticationCubit,AuthenticationState>(
                 listener: (context, state)
                 {
+                  if(state is LoginLoadingState)
+                    {
+                      const Center(child: CircularProgressIndicator());
+                    }
                   if(state is LoginSuccessState)
                     {
                       AppNavigator.customNavigator(
@@ -258,7 +262,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 onPressed: () {
                                   AppNavigator.customNavigator(
                                       context: context,
-                                      screen: SignUpScreen(),
+                                      screen: const SignUpScreen(),
                                       finish: false);
                                 },
                                 child: const Text(

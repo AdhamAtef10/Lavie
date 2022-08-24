@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                       physics: const AlwaysScrollableScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return CategoriesWidget(
+                        return const CategoriesWidget(
                             imagePath: 'assets/images/image 64.png',
                             name: 'tools'
                         );

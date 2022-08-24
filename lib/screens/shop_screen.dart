@@ -86,7 +86,9 @@ var searchController = TextEditingController();
 class _ShopScreenState extends State<ShopScreen> {
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
+    var screenSize = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -165,91 +167,96 @@ class _ShopScreenState extends State<ShopScreen> {
                         SizedBox(
                           width: screenSize.width / 2,
                           height: 1000,
-                          child: GridView.builder(
-                              gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisSpacing: 18,
-                                  mainAxisSpacing: 18,
-                                  crossAxisCount: 2),
-                              itemCount: 20,
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Material(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(10)),
-                                    elevation: 20,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 20, right: 20),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                        children: [
-                                          Image.asset(
-                                            'assets/images/jazmin-quaynor-8ioenvmof-I-unsplash (1) 1.png',
-                                            width: double.infinity,
-                                            height: 160,
-                                          ),
-                                          const SizedBox(
-                                            height: 20,
-                                          ),
-                                          Row(
+                          child: BlocConsumer<ProductsCubit,ProductsState>(
+                            listener: (context, state) {},
+                            builder: (context, state) {
+                              var productCubit=ProductsCubit.get(context);
+                              return GridView.builder(
+                                  gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisSpacing: 18,
+                                      mainAxisSpacing: 18,
+                                      crossAxisCount: 2),
+                                  itemCount: productCubit.data.length,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Material(
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(10)),
+                                        elevation: 20,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 20, right: 20),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                             children: [
-                                              Text(
-                                                'Cactus Plant',
-                                                style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight:
-                                                  FontWeight.bold,
-                                                ),
+                                              Image.asset(
+                                                productCubit.data[index].imageUrl,
+                                                width: double.infinity,
+                                                height: 160,
                                               ),
                                               const SizedBox(
-                                                width: 120,
+                                                height: 20,
                                               ),
-                                              Text(
-                                                '300  EGP',
-                                                style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: color,
-                                                  fontWeight:
-                                                  FontWeight.bold,
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    productCubit.data[index].name,
+                                                    style: const TextStyle(
+                                                      fontSize: 15,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 120,
+                                                  ),
+                                                  Text(
+                                                    productCubit.data[index].price.toString(),
+                                                    style: TextStyle(
+                                                      fontSize: 15,
+                                                      color: color,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                              const SizedBox(
+                                                height: 15,
+                                              ),
+                                               Text(
+                                                 productCubit.data[index].description,                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 11,
+                                                  color: Colors.grey,
                                                 ),
-                                              )
+                                                maxLines: 2,
+                                              ),
+                                              const SizedBox(
+                                                height: 30,
+                                              ),
+                                              ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                  onPrimary: Colors.white,
+                                                  primary: color,
+                                                  fixedSize:
+                                                  const Size(550, 40),
+                                                ),
+                                                onPressed: () {},
+                                                child:
+                                                const Text('Add To Cart'),
+                                              ),
                                             ],
                                           ),
-                                          const SizedBox(
-                                            height: 15,
-                                          ),
-                                          const Text(
-                                            'leaf, in botany, any usually flattened green outgrowth from the stem of  ',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 11,
-                                              color: Colors.grey,
-                                            ),
-                                            maxLines: 2,
-                                          ),
-                                          const SizedBox(
-                                            height: 30,
-                                          ),
-                                          ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                              onPrimary: Colors.white,
-                                              primary: color,
-                                              fixedSize:
-                                              const Size(550, 40),
-                                            ),
-                                            onPressed: () {},
-                                            child:
-                                            const Text('Add To Cart'),
-                                          ),
-                                        ],
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                );
-                              }),
+                                    );
+                                  });
+                            },
+                          ),
                         ),
                       ],
                     ),
@@ -319,11 +326,10 @@ class _ShopScreenState extends State<ShopScreen> {
 }
 
 class FilterItem extends StatefulWidget {
-  const FilterItem(
-      {Key? key,
-      required this.containerName,
-      required this.containerListCheck,
-      required this.containerListName})
+  const FilterItem({Key? key,
+    required this.containerName,
+    required this.containerListCheck,
+    required this.containerListName})
       : super(key: key);
   final String containerName;
   final List<bool> containerListCheck;
