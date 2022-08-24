@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:lavie/core/utlis.dart';
-import 'package:lavie/screens/blog_screen.dart';
-import 'package:lavie/screens/home_screen.dart';
-import 'package:lavie/screens/shop_screen.dart';
-
 class AuthAppBar extends StatelessWidget {
   const AuthAppBar({Key? key}) : super(key: key);
 
@@ -23,15 +18,14 @@ class AuthAppBar extends StatelessWidget {
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.resolveWith<Color>(
                           (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.hovered))
-                          return HexColor('FF#1ABC00');
+                        if (states.contains(MaterialState.hovered)) {
+                          return color;
+                        }
                         return Colors.black;
                       }),
                 ),
                 onPressed: ()
-                {
-                  AppNavigator.customNavigator(context: context, screen: HomeScreen(), finish: false);
-                },
+                {},
                 child: const Text('Home',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -41,15 +35,13 @@ class AuthAppBar extends StatelessWidget {
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.resolveWith<Color>(
                           (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.hovered))
-                          return HexColor('FF#1ABC00');
+                        if (states.contains(MaterialState.hovered)) {
+                          return color;
+                        }
                         return Colors.black;
                       }),
                 ),
-                onPressed: ()
-                {
-                  AppNavigator.customNavigator(context: context, screen: ShopScreen(), finish: false);
-                },
+                onPressed: () {},
                 child: const Text('Shop',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -59,15 +51,13 @@ class AuthAppBar extends StatelessWidget {
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.resolveWith<Color>(
                           (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.hovered))
-                          return HexColor('FF#1ABC00');
+                        if (states.contains(MaterialState.hovered)) {
+                          return color;
+                        }
                         return Colors.black;
                       }),
                 ),
-                onPressed: ()
-                {
-                  AppNavigator.customNavigator(context: context, screen: BlogScreen(), finish: false);
-                },
+                onPressed: () {},
                 child: const Text('Blog',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -77,8 +67,9 @@ class AuthAppBar extends StatelessWidget {
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.resolveWith<Color>(
                           (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.hovered))
-                          return HexColor('FF#1ABC00');
+                        if (states.contains(MaterialState.hovered)) {
+                          return color;
+                        }
                         return Colors.black;
                       }),
                 ),
@@ -92,8 +83,9 @@ class AuthAppBar extends StatelessWidget {
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.resolveWith<Color>(
                           (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.hovered))
-                          return HexColor('FF#1ABC00');
+                        if (states.contains(MaterialState.hovered)) {
+                          return color;
+                        }
                         return Colors.black;
                       }),
                 ),
@@ -106,7 +98,7 @@ class AuthAppBar extends StatelessWidget {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   onPrimary: Colors.white,
-                  primary: HexColor('FF#1ABC00'),
+                  primary:color,
                 ),
                 onPressed: () {},
                 child: const Text('Sign Up'),

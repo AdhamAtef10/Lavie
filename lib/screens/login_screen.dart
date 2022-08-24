@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -10,7 +9,7 @@ import 'package:lavie/screens/sign_up_screen.dart';
 
 import '../constants/auth_app_bar.dart';
 class LoginScreen extends StatefulWidget {
-  LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -19,6 +18,14 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool isChecked = false;
   var formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    AuthenticationCubit.get(context).emailController.text ="adhamatef10@gmail.com";
+    AuthenticationCubit.get(context).passwordController.text ="Adham0123";
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +46,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.resolveWith<Color>(
                       (Set<MaterialState> states) {
-                    if (states.contains(MaterialState.hovered))
-                      return HexColor('FF#1ABC00');
+                    if (states.contains(MaterialState.hovered)) {
+                      return color;
+                    }
                     return Colors.black;
                   }),
                 ),
@@ -66,9 +74,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.resolveWith<Color>(
                       (Set<MaterialState> states) {
-                    if (states.contains(MaterialState.hovered))
-                      return HexColor('FF#1ABC00');
-                    return HexColor('FF#1ABC00');
+                    if (states.contains(MaterialState.hovered)) {
+                      return color;
+                    }
+                    return color;
                   }),
                 ),
                 onPressed: () {},
@@ -94,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           Stack(
             children: [
-              Container(
+              SizedBox(
                 height: 200,
                 width: 200,
                 child: Image.asset('assets/images/flowers topleft.png'),
@@ -186,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       MaterialStateProperty.resolveWith<Color>(
                                           (Set<MaterialState> states) {
                                     if (states.contains(MaterialState.hovered)) {
-                                      return HexColor('FF#1ABC00');
+                                      return color;
                                     }
                                       return Colors.grey;
                                   }),
@@ -208,7 +217,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               onPrimary: Colors.white,
-                              primary: HexColor('FF#1ABC00'),
+                              primary: color,
                               fixedSize: const Size(1000,50),
                             ),
                             onPressed: () {
@@ -240,8 +249,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   foregroundColor:
                                       MaterialStateProperty.resolveWith<Color>(
                                           (Set<MaterialState> states) {
-                                    if (states.contains(MaterialState.hovered))
-                                      return HexColor('FF#1ABC00');
+                                    if (states.contains(MaterialState.hovered)) {
+                                      return color;
+                                    }
                                     return Colors.grey;
                                   }),
                                 ),
@@ -278,8 +288,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   foregroundColor:
                                       MaterialStateProperty.resolveWith<Color>(
                                           (Set<MaterialState> states) {
-                                    if (states.contains(MaterialState.hovered))
-                                      return HexColor('FF#1ABC00');
+                                    if (states.contains(MaterialState.hovered)) {
+                                      return color;
+                                    }
                                     return Colors.grey;
                                   }),
                                 ),
@@ -308,7 +319,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             children: [
                               SignInButtonBuilder(
                                 text: 'Sign in with Google',
-                                textColor: HexColor('FF#1ABC00'),
+                                textColor: color,
                                 image: Image.asset(
                                   'assets/images/Google.png',
                                   width: 22,
@@ -322,7 +333,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               SignInButtonBuilder(
                                 text: 'Sign in with Facebook',
-                                textColor: HexColor('FF#1ABC00'),
+                                textColor: color,
                                 image: Image.asset(
                                   'assets/images/Facebook.png',
                                   width: 22,
@@ -341,7 +352,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     width: 200,
                                     height: 200,
                                     child: Image.asset('assets/images/flowers bottomrigth.png')),],),

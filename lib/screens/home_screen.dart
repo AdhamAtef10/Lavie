@@ -1,11 +1,12 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:lavie/constants/app_bar.dart';
-import 'package:lavie/constants/auth_app_bar.dart';
 import 'package:lavie/constants/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+   HomeScreen({Key? key}) : super(key: key);
+  final color=HexColor('FF#1ABC00');
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ConstAppBar(),
+            const ConstAppBar(),
             Stack(
               alignment: Alignment.bottomCenter,
               children: [
@@ -25,20 +26,20 @@ class HomeScreen extends StatelessWidget {
                     Stack(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 180.0),
+                          padding: const EdgeInsets.only(top: 180),
                           child: SizedBox(
                               height: 400,
                               child: Image.asset('assets/images/tree.png')),
                         ),
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 120.0, 10, 0),
+                          padding: const EdgeInsets.fromLTRB(0, 120, 10, 0),
                           child: SizedBox(
                               height: 600,
                               child: Image.asset('assets/images/semi_circ.png')),
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 300,
                     ),
                     Padding(
@@ -52,9 +53,9 @@ class HomeScreen extends StatelessWidget {
                             child: Row(
                               children: [
                                 CircleAvatar(
-                                  backgroundColor: Colors.green,
-                                  radius: 25.0,
-                                  child: Icon(Icons.question_mark,
+                                  backgroundColor: color,
+                                  radius: 25,
+                                  child: const Icon(Icons.question_mark,
                                       color: Colors.white),
                                 ),
                               ],
@@ -65,13 +66,13 @@ class HomeScreen extends StatelessWidget {
                             style: TextStyle(
                                 color: color,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 30.0),
+                                fontSize: 30),
                           ),
-                          SizedBox(
-                            height: 10.0,
+                          const SizedBox(
+                            height: 10,
                           ),
-                          SizedBox(
-                            width: 500.0,
+                          const SizedBox(
+                            width: 500,
                             child: Text(
                               'leaf, in botany, any usually flattened green outgrowth from the stem of a vascular plant. As the primary sites of photosynthesis, leaves manufacture food for plants, which in turn ultimately nourish and sustain all land animals. Botanically, leaves are an integral part of the stem system. They are attached by a continuous vascular system to the rest of the plant so that free exchange of nutrients, water, and end products of photosynthesis',
                               style: TextStyle(fontSize: 19,
@@ -79,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           ElevatedButton(
@@ -102,11 +103,11 @@ class HomeScreen extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            MyTitle(title: 'Popular____\nCategories'),
-            SizedBox(
+            const MyTitle(title: 'Popular____\nCategories'),
+            const SizedBox(
               height: 20.0,
             ),
             SizedBox(
@@ -121,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 100),
                   child: ListView.separated(
-                      physics: AlwaysScrollableScrollPhysics(),
+                      physics: const AlwaysScrollableScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return CategoriesWidget(
@@ -129,17 +130,17 @@ class HomeScreen extends StatelessWidget {
                             name: 'tools'
                         );
                       },
-                      separatorBuilder: (context, index) => SizedBox(
-                        width: 60.0,
+                      separatorBuilder: (context, index) => const SizedBox(
+                        width: 60,
                       ),
                       itemCount: 20),
                 ),
               ),
             ),
-            SizedBox(height: 100.0),
-            MyTitle(title: 'Best seller___'),
-            SizedBox(
-              height: 20.0,
+            const SizedBox(height: 100),
+            const MyTitle(title: 'Best seller___'),
+            const SizedBox(
+              height: 20,
             ),
             SizedBox(
               height: 450,
@@ -153,31 +154,31 @@ class HomeScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 100),
                   child: ListView.separated(
-                      physics: AlwaysScrollableScrollPhysics(),
+                      physics: const AlwaysScrollableScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: EdgeInsets.only(top: index % 2 != 0 ? 60 : 0),
-                          child: BestSeller(
+                          child: const BestSeller(
                             imagePath: 'assets/images/image 75.png',
                             name: 'SPIDER PLANT',
                             price: '190 EG',
                           ),
                         );
                       },
-                      separatorBuilder: (context, index) => SizedBox(
-                        width: 60.0,
+                      separatorBuilder: (context, index) => const SizedBox(
+                        width: 60,
                       ),
                       itemCount: 20),
                 ),
               ),
             ),
-            SizedBox(
-              height: 20.0,
+            const SizedBox(
+              height: 20,
             ),
-            MyTitle(title: 'Blogs___'),
-            SizedBox(
-              height: 20.0,
+            const MyTitle(title: 'Blogs___'),
+            const SizedBox(
+              height: 20,
             ),
             SizedBox(
               height: 450,
@@ -191,10 +192,10 @@ class HomeScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 100),
                   child: ListView.separated(
-                      physics: AlwaysScrollableScrollPhysics(),
+                      physics: const AlwaysScrollableScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return BlogsWidget(
+                        return const BlogsWidget(
                           timeAgo: '2',
                           imagePath: 'assets/images/test.png',
                           name: '5 Simple Tips treat plant',
@@ -202,24 +203,24 @@ class HomeScreen extends StatelessWidget {
                           'leaf, in botany, any usually flattened green outgrowth from the stem of   ',
                         );
                       },
-                      separatorBuilder: (context, index) => SizedBox(
+                      separatorBuilder: (context, index) => const SizedBox(
                         width: 60,
                       ),
                       itemCount: 20),
                 ),
               ),
             ),
-            SizedBox(
-              height: 100.0,
+            const SizedBox(
+              height: 100,
             ),
-            MyTitle(title: 'About us____'),
-            SizedBox(
-              height: 20.0,
+            const MyTitle(title:'About us____'),
+            const SizedBox(
+              height: 20,
             ),
             Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 70),
+              children:[
+                const Padding(
+                  padding: EdgeInsets.only(left: 70),
                   child: SizedBox(
                     width: 500.0,
                     child: Text(
@@ -229,17 +230,17 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 500,
                 ),
                 Stack(
                   alignment: Alignment.topLeft,
-                  children: <Widget>[
+                  children:[
                     Container(
                       height: 280,
                       width: 200,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: color, width: 3),
                       ),
                     ),
@@ -247,7 +248,7 @@ class HomeScreen extends StatelessWidget {
                       bottom: 15,
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         height: 380,
                         width: 430,
@@ -260,8 +261,8 @@ class HomeScreen extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(
-              height: 100.0,
+            const SizedBox(
+              height: 100,
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -280,20 +281,20 @@ class HomeScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 130,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 80),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: const [
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 98, 0),
+                        padding: EdgeInsets.fromLTRB(0, 0, 98, 0),
                         child: MyTitle(title: 'Mobile Application _____'),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(46, 40, 0, 0),
+                        padding: EdgeInsets.fromLTRB(46, 40, 0, 0),
                         child: SizedBox(
                           width: 400,
                           child: Text(
@@ -350,7 +351,7 @@ class MyTitle extends StatelessWidget {
       padding: const EdgeInsets.only(left: 70.0),
       child: Text(
         title,
-        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
       ),
     );
   }

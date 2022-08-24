@@ -9,10 +9,11 @@ import 'services/sheared_preference/shearedprefrence_services.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferencesHelper.init();
-  DioHelper.init();
-  BlocOverrides.runZoned(()
-  {
-    runApp( AppRoot());
-  },
-      blocObserver: MyBlocObserver());
+  await DioHelper.init();
+
+  BlocOverrides.runZoned(() {
+  }, blocObserver: MyBlocObserver());
+
+  runApp(AppRoot());
+
 }

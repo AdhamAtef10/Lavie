@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lavie/model/authentication.dart';
 import 'package:lavie/services/dio/dio_services.dart';
+import 'package:lavie/services/sheared_preference/shearedprefrence_services.dart';
 part 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
@@ -31,6 +32,8 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       var jsonData = jsonDecode(value.data);
       authenticationHub = AuthenticationHub.fromJson(jsonData);
       print(value.data);
+      SharedPreferencesHelper.saveData(key: 'token', value: authenticationHub!.data!.accessToken);
+      print(authenticationHub!.data!.accessToken);
       emit(LoginSuccessState());
     }).catchError((error) {
       print(error.toString());

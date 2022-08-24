@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:lavie/constants/auth_app_bar.dart';
+import 'package:lavie/constants/auth_app_bar.dart';
+import 'package:lavie/constants/auth_app_bar.dart';
+import 'package:lavie/constants/auth_app_bar.dart';
+import 'package:lavie/constants/auth_app_bar.dart';
 import 'package:lavie/core/utlis.dart';
 import 'package:lavie/screens/blog_screen.dart';
+import 'package:lavie/screens/cart_screen.dart';
 import 'package:lavie/screens/home_screen.dart';
 import 'package:lavie/screens/shop_screen.dart';
 
@@ -24,8 +30,9 @@ class ConstAppBar extends StatelessWidget {
                   style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
-                          if (states.contains(MaterialState.hovered))
-                            return HexColor('FF#1ABC00');
+                          if (states.contains(MaterialState.hovered)) {
+                            return color;
+                          }
                           return Colors.black;
                         }),
                   ),
@@ -46,8 +53,9 @@ class ConstAppBar extends StatelessWidget {
                   style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
-                          if (states.contains(MaterialState.hovered))
-                            return HexColor('FF#1ABC00');
+                          if (states.contains(MaterialState.hovered)) {
+                            return color;
+                          }
                           return Colors.black;
                         }),
                   ),
@@ -68,8 +76,9 @@ class ConstAppBar extends StatelessWidget {
                   style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
-                          if (states.contains(MaterialState.hovered))
-                            return HexColor('FF#1ABC00');
+                          if (states.contains(MaterialState.hovered)) {
+                            return color;
+                          }
                           return Colors.black;
                         }),
                   ),
@@ -90,8 +99,9 @@ class ConstAppBar extends StatelessWidget {
                   style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
-                          if (states.contains(MaterialState.hovered))
-                            return HexColor('FF#1ABC00');
+                          if (states.contains(MaterialState.hovered)) {
+                            return color;
+                          }
                           return Colors.black;
                         }),
                   ),
@@ -105,8 +115,9 @@ class ConstAppBar extends StatelessWidget {
                   style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
-                          if (states.contains(MaterialState.hovered))
-                            return HexColor('FF#1ABC00');
+                          if (states.contains(MaterialState.hovered)) {
+                            return color;
+                          }
                           return Colors.black;
                         }),
                   ),
@@ -117,11 +128,14 @@ class ConstAppBar extends StatelessWidget {
                     ),),
                 ),
                 IconButton(
-                  icon:Icon(Icons.shopping_cart_outlined),
-                  onPressed: (){},
+                  icon:const Icon(Icons.shopping_cart_outlined),
+                  onPressed: ()
+                  {
+                    AppNavigator.customNavigator(context: context, screen: CartScreen(), finish: false);
+                  },
                 ),
                 IconButton(
-                  icon:Icon(Icons.add_alert_rounded),
+                  icon:const Icon(Icons.add_alert_rounded),
                   onPressed: (){},
                 ),
                    Image.asset('assets/images/Background - 2022-08-09T012830 1.png'),
@@ -134,3 +148,4 @@ class ConstAppBar extends StatelessWidget {
     );
   }
 }
+

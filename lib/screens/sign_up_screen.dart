@@ -6,11 +6,16 @@ import 'package:lavie/bloc/authentication/authentication_cubit.dart';
 import 'package:lavie/core/utlis.dart';
 import 'package:lavie/screens/home_screen.dart';
 import 'package:lavie/screens/login_screen.dart';
-
 import '../constants/auth_app_bar.dart';
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
   var formKey = GlobalKey<FormState>();
 
   @override
@@ -32,9 +37,10 @@ class SignUpScreen extends StatelessWidget {
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.resolveWith<Color>(
                       (Set<MaterialState> states) {
-                    if (states.contains(MaterialState.hovered))
-                      return HexColor('FF#1ABC00');
-                    return HexColor('FF#1ABC00');
+                    if (states.contains(MaterialState.hovered)) {
+                      return color;
+                    }
+                    return color;
                   }),
                 ),
                 onPressed: () {},
@@ -53,14 +59,15 @@ class SignUpScreen extends StatelessWidget {
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.resolveWith<Color>(
                       (Set<MaterialState> states) {
-                    if (states.contains(MaterialState.pressed))
-                      return HexColor('FF#1ABC00');
+                    if (states.contains(MaterialState.pressed)) {
+                      return color;
+                    }
                     return Colors.black;
                   }),
                 ),
                 onPressed: () {
                   AppNavigator.customNavigator(
-                      context: context, screen: LoginScreen(), finish: false);
+                      context: context, screen: const LoginScreen(), finish: false);
                 },
                 child: const Text(
                   'Login',
@@ -84,7 +91,7 @@ class SignUpScreen extends StatelessWidget {
           ),
           Stack(
             children: [
-              Container(
+              SizedBox(
                 height: 200,
                 width: 200,
                 child: Image.asset('assets/images/flowers topleft.png'),
@@ -238,7 +245,7 @@ class SignUpScreen extends StatelessWidget {
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               onPrimary: Colors.white,
-                              primary: HexColor('FF#1ABC00'),
+                              primary: color,
                               fixedSize: const Size(1000, 50),
                             ),
                             onPressed: () {
@@ -272,15 +279,16 @@ class SignUpScreen extends StatelessWidget {
                                   foregroundColor:
                                       MaterialStateProperty.resolveWith<Color>(
                                           (Set<MaterialState> states) {
-                                    if (states.contains(MaterialState.hovered))
-                                      return HexColor('FF#1ABC00');
+                                    if (states.contains(MaterialState.hovered)) {
+                                      return color;
+                                    }
                                     return Colors.grey;
                                   }),
                                 ),
                                 onPressed: () {
                                   AppNavigator.customNavigator(
                                       context: context,
-                                      screen: LoginScreen(),
+                                      screen: const LoginScreen(),
                                       finish: false);
                                 },
                                 child: const Text(
@@ -310,8 +318,9 @@ class SignUpScreen extends StatelessWidget {
                                   foregroundColor:
                                       MaterialStateProperty.resolveWith<Color>(
                                           (Set<MaterialState> states) {
-                                    if (states.contains(MaterialState.hovered))
-                                      return HexColor('FF#1ABC00');
+                                    if (states.contains(MaterialState.hovered)) {
+                                      return color;
+                                    }
                                     return Colors.grey;
                                   }),
                                 ),
@@ -340,7 +349,7 @@ class SignUpScreen extends StatelessWidget {
                             children: [
                               SignInButtonBuilder(
                                 text: 'Sign in with Google',
-                                textColor: HexColor('FF#1ABC00'),
+                                textColor: color,
                                 image: Image.asset(
                                   'assets/images/Google.png',
                                   width: 22,
@@ -354,7 +363,7 @@ class SignUpScreen extends StatelessWidget {
                               ),
                               SignInButtonBuilder(
                                 text: 'Sign in with Facebook',
-                                textColor: HexColor('FF#1ABC00'),
+                                textColor: color,
                                 image: Image.asset(
                                   'assets/images/Facebook.png',
                                   width: 22,
